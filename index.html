@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trương Hoàng Lộc | Digital Marketing Specialist Portfolio</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Portfolio của Trương Hoàng Lộc - Chuyên gia Digital Marketing & Performance Marketing tại TP.HCM. Chuyên tối ưu Ads, SEO website, sản xuất content và tự động hóa AI.">
+    <meta name="keywords" content="Trương Hoàng Lộc, Truong Hoang Loc, Digital Marketing, Performance Marketing, Facebook Ads, TikTok Ads, Google Ads, SEO, Automation AI, Portfolio">
+    <meta name="author" content="Trương Hoàng Lộc">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://truonghoangloc.id.vn/">
+    <meta property="og:title" content="Trương Hoàng Lộc | Digital Marketing Specialist Portfolio">
+    <meta property="og:description" content="Portfolio của Trương Hoàng Lộc - Chuyên gia Digital Marketing & Performance Marketing tại TP.HCM. Chuyên tối ưu Ads, SEO website, sản xuất content và tự động hóa AI.">
+    <meta property="og:image" content="avatar.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Trương Hoàng Lộc | Digital Marketing Specialist Portfolio">
+    <meta property="twitter:description" content="Portfolio của Trương Hoàng Lộc - Chuyên gia Digital Marketing & Performance Marketing tại TP.HCM. Chuyên tối ưu Ads, SEO website, sản xuất content và tự động hóa AI.">
+    <meta property="twitter:image" content="avatar.jpg">
+
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Particle Background Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#home" class="logo">
+                <span class="gradient-text">Hoàng Lộc</span>
+            </a>
+            
+            <nav class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active" data-i18n="nav_home">Trang chủ</a>
+                <a href="#about" class="nav-link" data-i18n="nav_about">Giới thiệu</a>
+                <a href="#metrics" class="nav-link" data-i18n="nav_metrics">Chỉ số</a>
+                <a href="#services" class="nav-link" data-i18n="nav_services">Dịch vụ</a>
+                <a href="#blog" class="nav-link" data-i18n="nav_blog">Blog</a>
+                <a href="#contact" class="nav-link" data-i18n="nav_contact">Liên hệ</a>
+            </nav>
+
+            <div class="header-actions">
+                <!-- Language Toggle -->
+                <button class="action-btn lang-btn" id="langToggle" aria-label="Toggle language">
+                    <span>EN</span>
+                </button>
+                
+                <!-- Theme Toggle -->
+                <button class="action-btn theme-btn" id="themeToggle" aria-label="Toggle dark/light mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                
+                <!-- Mobile Navigation Toggle -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="drawer-header">
+            <a href="#home" class="logo">
+                <span class="gradient-text">Hoàng Lộc</span>
+            </a>
+            <button class="close-drawer-btn" id="closeDrawerBtn" aria-label="Close menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <nav class="drawer-nav">
+            <a href="#home" class="drawer-link" data-i18n="nav_home">Trang chủ</a>
+            <a href="#about" class="drawer-link" data-i18n="nav_about">Giới thiệu</a>
+            <a href="#metrics" class="drawer-link" data-i18n="nav_metrics">Chỉ số</a>
+            <a href="#services" class="drawer-link" data-i18n="nav_services">Dịch vụ</a>
+            <a href="#blog" class="drawer-link" data-i18n="nav_blog">Blog</a>
+            <a href="#contact" class="drawer-link" data-i18n="nav_contact">Liên hệ</a>
+        </nav>
+    </div>
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+
+    <!-- Main Container -->
+    <main>
+        
+        <!-- Hero Section -->
+        <section id="home" class="section hero-section">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="welcome-badge">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span data-i18n="hero_welcome">Chào mừng đến với Portfolio của tôi</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        <span data-i18n="hero_title_prefix">Tôi là </span>
+                        <span class="gradient-text">Trương Hoàng Lộc</span>
+                    </h1>
+                    
+                    <div class="typing-container">
+                        <span class="typing-prefix" data-i18n="hero_typing_prefix">Chuyên gia về</span>
+                        <span class="typing-text" id="typingText"></span><span class="cursor">|</span>
+                    </div>
+                    
+                    <p class="hero-description" data-i18n="hero_desc">
+                        Là một sinh viên Thương Mại Điện Tử tại UEH với tư duy nhạy bén và hơn 1 năm kinh nghiệm thực chiến Digital Marketing. Tôi chuyên lập kế hoạch, tối ưu hóa quảng cáo đa nền tảng và ứng dụng giải pháp AI tự động hóa để mang lại hiệu quả chuyển đổi vượt trội cho doanh nghiệp.
+                    </p>
+                    
+                    <div class="hero-actions-group">
+                        <a href="#contact" class="btn btn-primary" data-i18n="btn_consult">NHẬN TƯ VẤN <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#services" class="btn btn-secondary" data-i18n="btn_services">XEM DỊCH VỤ</a>
+                    </div>
+
+                    <div class="hero-socials">
+                        <a href="https://www.facebook.com/truonghoangloc.1511" target="_blank" class="social-link-item" aria-label="Facebook Profile">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/tr%C6%B0%C6%A1ng-ho%C3%A0ng-l%E1%BB%99c-30b14b29b/" target="_blank" class="social-link-item" aria-label="LinkedIn Profile">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:truonghoanglock4@gmail.com" class="social-link-item" aria-label="Email Me">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="profile-card">
+                        <div class="profile-img-container">
+                            <img src="avatar.jpg" alt="Trương Hoàng Lộc Avatar" class="profile-img">
+                        </div>
+                        <div class="profile-info">
+                            <h3>Trương Hoàng Lộc</h3>
+                            <p data-i18n="profile_subtitle">Digital Marketing Specialist</p>
+                            <div class="profile-meta-list">
+                                <div class="profile-meta-item">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <span>TP. Hồ Chí Minh</span>
+                                </div>
+                                <div class="profile-meta-item">
+                                    <i class="fa-solid fa-envelope"></i>
+                                    <span>truonghoanglock4@gmail.com</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating Badges -->
+                        <div class="floating-badge badge-top-left">
+                            <i class="fa-brands fa-facebook"></i>
+                            <span>Meta & TikTok Ads</span>
+                        </div>
+                        <div class="floating-badge badge-top-right">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span data-i18n="badge_roas">Tối ưu ROAS</span>
+                        </div>
+                        <div class="floating-badge badge-bottom-left">
+                            <i class="fa-solid fa-robot"></i>
+                            <span>AI Automation</span>
+                        </div>
+                        <div class="floating-badge badge-bottom-right">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <span>E-commerce UEH</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="section about-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title"><span data-i18n="about_title_prefix">Về </span><span class="gradient-text" data-i18n="about_title_highlight">Tôi</span></h2>
+                    <p class="section-subtitle" data-i18n="about_subtitle">Hành trình và năng lực cốt lõi trong lĩnh vực Tiếp thị số</p>
+                </div>
+                
+                <div class="about-grid">
+                    <div class="about-info">
+                        <h3 class="about-block-title" data-i18n="about_intro_title">Giới thiệu bản thân</h3>
+                        <p class="about-text" data-i18n="about_intro_desc">
+                            Là một sinh viên chuyên ngành Thương Mại Điện Tử với những kiến thức nền tảng vững chắc và 1 năm kinh nghiệm thực chiến về Digital Marketing, tôi mong muốn được học hỏi, nâng cao kỹ năng phân tích chiến lược Digital Marketing một cách chuyên sâu và chuyên nghiệp hơn. Đồng thời, tôi kỳ vọng được làm việc trong một môi trường chuyên nghiệp để áp dụng kiến thức, tích lũy kinh nghiệm thực tế và đóng góp giá trị cho doanh nghiệp.
+                        </p>
+                        
+                        <h3 class="about-block-title" data-i18n="about_skills_title" style="margin-top: 2rem;">Kỹ năng chuyên môn</h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-meta">
+                                    <span class="skill-name">Facebook & TikTok Ads (Setup, Scaling, Content)</span>
+                                    <span class="skill-percentage">92%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" style="width: 92%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-meta">
+                                    <span class="skill-name" data-i18n="skill_opt">Tối ưu hiệu quả chiến dịch (CPC, CPA, CTR, ROAS)</span>
+                                    <span class="skill-percentage">88%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-meta">
+                                    <span class="skill-name">SEO Audit & Keyword Research (Semrush, SEO Onpage)</span>
+                                    <span class="skill-percentage">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-meta">
+                                    <span class="skill-name" data-i18n="skill_creative">Sản xuất Content & Edit Video ngắn (CapCut, Canva)</span>
+                                    <span class="skill-percentage">80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-timeline">
+                        <h3 class="about-block-title" data-i18n="about_timeline_title">Hành trình phát triển</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-node"></div>
+                                <div class="timeline-date">2/2026 - 5/2026</div>
+                                <div class="timeline-content">
+                                    <h4 class="timeline-title">Performance Marketing</h4>
+                                    <h5 class="timeline-org" data-i18n="timeline_flg">CÔNG TY THƯƠNG MẠI FLG</h5>
+                                    <p class="timeline-desc" data-i18n="timeline_flg_desc">
+                                        Quản lý ngân sách ads > 100M/tháng, đạt 300M doanh thu và 60M lợi nhuận. Lên camp, vít ads, tối ưu CTR/ROAS, tìm nguồn hàng Việt - Trung, edit short video đa kênh và phát triển content bán hàng.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-node"></div>
+                                <div class="timeline-date">6/2025 - 12/2025</div>
+                                <div class="timeline-content">
+                                    <h4 class="timeline-title">Digital Marketing Intern</h4>
+                                    <h5 class="timeline-org">SPORTPRO.VN</h5>
+                                    <p class="timeline-desc" data-i18n="timeline_sportpro_desc">
+                                        Xây dựng kế hoạch ngân sách Meta/TikTok Ads, báo cáo KPI, phân tích đối thủ, A/B test creatives. Tham gia xây dựng hệ thống AI tự động viết mô tả sản phẩm (Make.com, Sheets, API). Audit kỹ thuật SEO, nghiên cứu từ khóa (Semrush) đẩy top ranking.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-node"></div>
+                                <div class="timeline-date">2022 - Present</div>
+                                <div class="timeline-content">
+                                    <h4 class="timeline-title" data-i18n="timeline_ueh_title">Sinh viên Thương Mại Điện Tử</h4>
+                                    <h5 class="timeline-org" data-i18n="timeline_ueh_name">Đại Học Kinh Tế TP.HCM (UEH)</h5>
+                                    <p class="timeline-desc" data-i18n="timeline_ueh_desc">
+                                        GPA hiện tại: 3.5/4.0. Nền tảng chuyên môn vững chắc về thương mại điện tử, digital marketing, kỹ thuật tối ưu hóa công cụ tìm kiếm và phân tích số liệu kinh tế.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-node"></div>
+                                <div class="timeline-date">2025</div>
+                                <div class="timeline-content">
+                                    <h4 class="timeline-title">Foundations of Digital Marketing</h4>
+                                    <h5 class="timeline-org">Google Digital Garage</h5>
+                                    <p class="timeline-desc" data-i18n="timeline_google_desc">
+                                        Chứng chỉ quốc tế chuyên sâu về nền tảng Digital Marketing và Thương mại điện tử của Google.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Metrics Section -->
+        <section id="metrics" class="section metrics-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title"><span data-i18n="metrics_title_prefix">Con Số </span><span class="gradient-text" data-i18n="metrics_title_highlight">Ấn Tượng</span></h2>
+                    <p class="section-subtitle" data-i18n="metrics_subtitle">Kết quả và thành tích cụ thể đã đạt được qua quá trình làm việc thực tế</p>
+                </div>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fa-solid fa-wallet"></i>
+                        </div>
+                        <div class="metric-val">100M+</div>
+                        <div class="metric-label" data-i18n="metric_budget">Ngân Sách Ads/Tháng</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fa-solid fa-circle-dollar-to-slot"></i>
+                        </div>
+                        <div class="metric-val">300M+</div>
+                        <div class="metric-label" data-i18n="metric_revenue">Doanh Thu Tạo Ra</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fa-solid fa-piggy-bank"></i>
+                        </div>
+                        <div class="metric-val">60M+</div>
+                        <div class="metric-label" data-i18n="metric_profit">Lợi Nhuận Thực Tế</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <div class="metric-val">3.5/4.0</div>
+                        <div class="metric-label" data-i18n="metric_gpa">GPA Xuất Sắc tại UEH</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section services-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title"><span data-i18n="services_title_prefix">Dịch Vụ </span><span class="gradient-text" data-i18n="services_title_highlight">Chuyên Sâu</span></h2>
+                    <p class="section-subtitle" data-i18n="services_subtitle">Giải pháp tiếp thị toàn diện tối ưu hóa tỷ lệ chuyển đổi cho thương hiệu của bạn</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fa-solid fa-gauge-high"></i>
+                        </div>
+                        <h3 class="service-title" data-i18n="service_1_title">Quảng cáo Performance</h3>
+                        <p class="service-desc" data-i18n="service_1_desc">Setup chiến dịch và vít ads chuyển đổi cao trên Meta (Facebook, Instagram) & TikTok. Tối ưu ngân sách, kiểm soát chặt chẽ CPA/ROAS.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fa-solid fa-magnifying-glass-chart"></i>
+                        </div>
+                        <h3 class="service-title" data-i18n="service_2_title">Nghiên cứu Từ khóa & SEO</h3>
+                        <p class="service-desc" data-i18n="service_2_desc">Phân tích từ khóa đối thủ bằng công cụ chuyên sâu Semrush, thiết lập cấu trúc onpage và khắc phục lỗi kỹ thuật SEO cải thiện thứ hạng organic.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fa-solid fa-clapperboard"></i>
+                        </div>
+                        <h3 class="service-title" data-i18n="service_3_title">Sản xuất Video & Content</h3>
+                        <p class="service-desc" data-i18n="service_3_desc">Lên kịch bản, edit short video bán hàng ấn tượng cho Reels, TikTok. Viết copywriting đánh trúng tâm lý khách hàng để tăng tỷ lệ chuyển đổi.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <h3 class="service-title" data-i18n="service_4_title">Tự động hóa AI Marketing</h3>
+                        <p class="service-desc" data-i18n="service_4_desc">Thiết lập automation (Make.com, Google Sheets, ChatGPT API) để tự động viết mô tả sản phẩm hàng loạt và chuẩn SEO, tối ưu hóa quy trình.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h3 class="service-title" data-i18n="service_5_title">Quản trị Website & Store</h3>
+                        <p class="service-desc" data-i18n="service_5_desc">Quản trị cửa hàng trực tuyến, đăng tải sản phẩm, xây dựng và quản trị blog vệ tinh chuẩn SEO giúp gia tăng uy tín và điểm chất lượng.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fa-solid fa-flask"></i>
+                        </div>
+                        <h3 class="service-title" data-i18n="service_6_title">A/B Testing & Phân Tích</h3>
+                        <p class="service-desc" data-i18n="service_6_desc">Thử nghiệm so sánh nhiều mẫu nội dung và hình ảnh. Phân tích chi tiết báo cáo dữ liệu CPC, CPM, CTR để đưa ra quyết định tối ưu chuẩn xác.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="section blog-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title"><span data-i18n="blog_title_prefix">Blog & </span><span class="gradient-text" data-i18n="blog_title_highlight">Kiến Thức</span></h2>
+                    <p class="section-subtitle" data-i18n="blog_subtitle">Chia sẻ kinh nghiệm thực chiến và cập nhật xu hướng Digital Marketing mới nhất 2026</p>
+                </div>
+                
+                <div class="blog-grid">
+                    <article class="blog-card">
+                        <div class="blog-img-container">
+                            <img src="blog_ad_strategy.png" alt="Meta & TikTok Ads Strategy" class="blog-img">
+                            <span class="blog-tag">Ad Strategy</span>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <i class="fa-solid fa-calendar-days"></i>
+                                <span>27/05/2026</span>
+                            </div>
+                            <h3 class="blog-card-title" data-i18n="blog_1_title">Lập Kế Hoạch Quảng Cáo Đa Kênh Meta & TikTok Cho Sản Phẩm Mới</h3>
+                            <p class="blog-desc" data-i18n="blog_1_desc">Hướng dẫn phân bổ ngân sách thử nghiệm, A/B testing nội dung và định hình phễu chuyển đổi giúp sản phẩm mới tiếp cận đúng tệp khách hàng mục tiêu...</p>
+                            <a href="#contact" class="blog-link" data-i18n="blog_read_more">Đọc tiếp <i class="fa-solid fa-angle-right"></i></a>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-img-container">
+                            <img src="blog_ai_automation.png" alt="AI E-commerce Automation" class="blog-img">
+                            <span class="blog-tag">AI Automation</span>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <i class="fa-solid fa-calendar-days"></i>
+                                <span>14/05/2026</span>
+                            </div>
+                            <h3 class="blog-card-title" data-i18n="blog_2_title">Tự Động Hóa AI Trong E-commerce: Tăng Tốc Sản Xuất Content Bằng Make.com</h3>
+                            <p class="blog-desc" data-i18n="blog_2_desc">Quy trình tích hợp APIs ngôn ngữ lớn để tự động hóa viết mô tả hàng ngàn mã sản phẩm, định dạng HTML chuẩn SEO và cập nhật lên Google Sheets chỉ trong vài phút...</p>
+                            <a href="#contact" class="blog-link" data-i18n="blog_read_more">Đọc tiếp <i class="fa-solid fa-angle-right"></i></a>
+                        </div>
+                    </article>
+                    <article class="blog-card">
+                        <div class="blog-img-container">
+                            <img src="blog_seo_audit.png" alt="SEO Onpage & Website Audit" class="blog-img">
+                            <span class="blog-tag">SEO Audit</span>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <i class="fa-solid fa-calendar-days"></i>
+                                <span>02/05/2026</span>
+                            </div>
+                            <h3 class="blog-card-title" data-i18n="blog_3_title">Tối Ưu SEO Onpage & Audit Website: Đưa Từ Khóa Lên Top Google Với Semrush</h3>
+                            <p class="blog-desc" data-i18n="blog_3_desc">Cách sử dụng bộ công cụ Semrush để tìm kiếm khoảng trống từ khóa của đối thủ (Keyword Gap), khắc phục lỗi kỹ thuật audit, và viết tiêu đề thu hút người dùng...</p>
+                            <a href="#contact" class="blog-link" data-i18n="blog_read_more">Đọc tiếp <i class="fa-solid fa-angle-right"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title"><span data-i18n="contact_title_prefix">Hãy Bắt Đầu </span><span class="gradient-text" data-i18n="contact_title_highlight">Dự Án Mới</span></h2>
+                    <p class="section-subtitle" data-i18n="contact_subtitle">Sẵn sàng đồng hành cùng doanh nghiệp của bạn nâng cao doanh số quảng cáo. Liên hệ ngay hôm nay!</p>
+                </div>
+                
+                <div class="contact-grid">
+                    <div class="contact-info-panel">
+                        <h3 class="contact-panel-title" data-i18n="contact_info_title">Thông tin liên hệ</h3>
+                        
+                        <div class="contact-list">
+                            <a href="mailto:truonghoanglock4@gmail.com" class="contact-item-card">
+                                <div class="contact-item-icon">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div class="contact-item-details">
+                                    <h4 data-i18n="contact_email">Gửi Email trực tiếp</h4>
+                                    <p>truonghoanglock4@gmail.com</p>
+                                </div>
+                            </a>
+                            <a href="tel:0869623429" class="contact-item-card">
+                                <div class="contact-item-icon">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div class="contact-item-details">
+                                    <h4 data-i18n="contact_phone">Số điện thoại / Zalo</h4>
+                                    <p>0869 623 429</p>
+                                </div>
+                            </a>
+                            <a href="https://www.facebook.com/truonghoangloc.1511" target="_blank" class="contact-item-card">
+                                <div class="contact-item-icon">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </div>
+                                <div class="contact-item-details">
+                                    <h4>Facebook Messenger</h4>
+                                    <p>Trương Hoàng Lộc</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-panel">
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="formName" data-i18n="form_name">Họ và tên của bạn</label>
+                                <input type="text" id="formName" class="form-control" placeholder="Nhập họ và tên..." required>
+                            </div>
+                            <div class="form-group">
+                                <label for="formEmail" data-i18n="form_email">Địa chỉ Email</label>
+                                <input type="email" id="formEmail" class="form-control" placeholder="Nhập email liên hệ..." required>
+                            </div>
+                            <div class="form-group">
+                                <label for="formMsg" data-i18n="form_msg">Nội dung tin nhắn</label>
+                                <textarea id="formMsg" class="form-control" rows="5" placeholder="Bạn cần tư vấn chiến dịch gì? Hãy ghi chi tiết tại đây..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-submit" id="btnSubmitForm">
+                                <span data-i18n="btn_send">Gửi Tin Nhắn</span>
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                            <div class="form-response-msg" id="formResponse"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <p>&copy; 2026 Trương Hoàng Lộc. All rights reserved. Designed with ❤️ for Digital Marketing.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Quick Actions -->
+    <div class="floating-actions">
+        <!-- Zalo Chat -->
+        <a href="https://zalo.me/0869623429" target="_blank" class="floating-btn zalo-btn" aria-label="Chat via Zalo">
+            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#0068FF" style="width: 28px; height: 28px;">
+                <title>Zalo</title>
+                <path d="M12.49 10.2722v-.4496h1.3467v6.3218h-.7704a.576.576 0 01-.5763-.5729l-.0006.0005a3.273 3.273 0 01-1.9372.6321c-1.8138 0-3.2844-1.4697-3.2844-3.2823 0-1.8125 1.4706-3.2822 3.2844-3.2822a3.273 3.273 0 011.9372.6321l.0006.0005zM6.9188 7.7896v.205c0 .3823-.051.6944-.2995 1.0605l-.03.0343c-.0542.0615-.1815.206-.2421.2843L2.024 14.8h4.8948v.7682a.5764.5764 0 01-.5767.5761H0v-.3622c0-.4436.1102-.6414.2495-.8476L4.8582 9.23H.1922V7.7896h6.7266zm8.5513 8.3548a.4805.4805 0 01-.4803-.4798v-7.875h1.4416v8.3548H15.47zM20.6934 9.6C22.52 9.6 24 11.0807 24 12.9044c0 1.8252-1.4801 3.306-3.3066 3.306-1.8264 0-3.3066-1.4808-3.3066-3.306 0-1.8237 1.4802-3.3044 3.3066-3.3044zm-10.1412 5.253c1.0675 0 1.9324-.8645 1.9324-1.9312 0-1.065-.865-1.9295-1.9324-1.9295s-1.9324.8644-1.9324 1.9295c0 1.0667.865 1.9312 1.9324 1.9312zm10.1412-.0033c1.0737 0 1.945-.8707 1.945-1.9453 0-1.073-.8713-1.9436-1.945-1.9436-1.0753 0-1.945.8706-1.945 1.9436 0 1.0746.8697 1.9453 1.945 1.9453z"/>
+            </svg>
+        </a>
+        <!-- Messenger Chat -->
+        <a href="https://m.me/truonghoangloc.1511" target="_blank" class="floating-btn messenger-btn" aria-label="Chat via Messenger">
+            <i class="fa-brands fa-facebook-messenger"></i>
+        </a>
+    </div>
+
+    <!-- Back to top button -->
+    <button class="back-to-top" id="backToTopBtn" aria-label="Scroll back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
