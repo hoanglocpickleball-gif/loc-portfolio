@@ -1519,3 +1519,67 @@ button, input, textarea {
         opacity: 1;
     }
 }
+
+/* ==========================================================================
+   LUCIDE ICONS OPTIMIZATION & STYLING
+   ========================================================================== */
+svg.lucide {
+    width: 1.25em;
+    height: 1.25em;
+    stroke-width: 2px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+/* Specific overrides for layout classes */
+.profile-meta-item svg {
+    stroke: var(--badge-text);
+    width: 14px;
+    height: 14px;
+}
+
+.blog-meta svg {
+    stroke: var(--badge-text);
+    width: 14px;
+    height: 14px;
+}
+
+.service-icon svg {
+    width: 2.25rem;
+    height: 2.25rem;
+    stroke: var(--badge-text);
+    stroke-width: 1.8px;
+}
+
+.metric-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--badge-text);
+}
+
+.contact-item-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--badge-text);
+}
+
+.action-btn svg, .mobile-menu-btn svg, .close-drawer-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.floating-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+.back-to-top svg {
+    width: 20px;
+    height: 20px;
+}
+
+.btn svg {
+    width: 18px;
+    height: 18px;
+}
+

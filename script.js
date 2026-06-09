@@ -13,7 +13,7 @@ const translations = {
         hero_title_prefix: "Tôi là ",
         hero_typing_prefix: "Chuyên gia về",
         hero_desc: "Là một sinh viên Thương Mại Điện Tử tại UEH với tư duy nhạy bén và hơn 1 năm kinh nghiệm thực chiến Digital Marketing. Tôi chuyên lập kế hoạch, tối ưu hóa quảng cáo đa nền tảng và ứng dụng giải pháp AI tự động hóa để mang lại hiệu quả chuyển đổi vượt trội cho doanh nghiệp.",
-        btn_consult: "NHẬN TƯ VẤN <i class='fa-solid fa-arrow-right'></i>",
+        btn_consult: "NHẬN TƯ VẤN <i data-lucide='arrow-right'></i>",
         btn_services: "XEM DỊCH VỤ",
         profile_subtitle: "Digital Marketing Specialist",
         badge_roas: "Tối ưu ROAS",
@@ -64,7 +64,7 @@ const translations = {
         blog_2_desc: "Quy trình tích hợp APIs ngôn ngữ lớn để tự động hóa viết mô tả hàng ngàn mã sản phẩm, định dạng HTML chuẩn SEO và cập nhật lên Google Sheets chỉ trong vài phút...",
         blog_3_title: "Tối Ưu SEO Onpage & Audit Website: Đưa Từ Khóa Lên Top Google Với Semrush",
         blog_3_desc: "Cách sử dụng bộ công cụ Semrush để tìm kiếm khoảng trống từ khóa của đối thủ (Keyword Gap), khắc phục lỗi kỹ thuật audit, và viết tiêu đề thu hút người dùng...",
-        blog_read_more: "Đọc tiếp <i class='fa-solid fa-angle-right'></i>",
+        blog_read_more: "Đọc tiếp <i data-lucide='chevron-right'></i>",
         contact_title_prefix: "Hãy Bắt Đầu ",
         contact_title_highlight: "Dự Án Mới",
         contact_subtitle: "Sẵn sàng đồng hành cùng doanh nghiệp của bạn nâng cao doanh số quảng cáo. Liên hệ ngay hôm nay!",
@@ -74,7 +74,7 @@ const translations = {
         form_name: "Họ và tên của bạn",
         form_email: "Địa chỉ Email",
         form_msg: "Nội dung tin nhắn",
-        btn_send: "Gửi Tin Nhắn <i class='fa-solid fa-paper-plane'></i>",
+        btn_send: "Gửi Tin Nhắn <i data-lucide='send'></i>",
         msg_success: "Cảm ơn bạn! Tin nhắn của bạn đã được gửi thành công. Tôi sẽ liên hệ lại sớm nhất.",
         msg_error: "Có lỗi xảy ra khi gửi tin nhắn. Bạn vui lòng thử lại hoặc liên hệ trực tiếp qua số điện thoại/Zalo nhé."
     },
@@ -89,7 +89,7 @@ const translations = {
         hero_title_prefix: "I am ",
         hero_typing_prefix: "Specialist in",
         hero_desc: "An E-commerce major at UEH with analytical skills and 1+ years of real-world Digital Marketing experience. I specialize in channel planning, multi-platform ads optimization, and AI automation workflows to drive high conversion results for businesses.",
-        btn_consult: "GET CONSULTATION <i class='fa-solid fa-arrow-right'></i>",
+        btn_consult: "GET CONSULTATION <i data-lucide='arrow-right'></i>",
         btn_services: "EXPLORE SERVICES",
         profile_subtitle: "Digital Marketing Specialist",
         badge_roas: "ROAS Optimization",
@@ -140,7 +140,7 @@ const translations = {
         blog_2_desc: "Detailed workflow of connecting large language model APIs to automate catalog details, format SEO tags, and populate inventory sheets dynamically...",
         blog_3_title: "Advanced Onpage SEO and Auditing via Semrush Keyword Gap Tool",
         blog_3_desc: "Learn to use Semrush dashboard queries to pinpoint content gaps, resolve code errors, structure headers, and optimize overall site crawlability...",
-        blog_read_more: "Read more <i class='fa-solid fa-angle-right'></i>",
+        blog_read_more: "Read more <i data-lucide='chevron-right'></i>",
         contact_title_prefix: "Start A ",
         contact_title_highlight: "New Project",
         contact_subtitle: "Ready to scale your advertising revenue? Get in touch today for consulting sessions!",
@@ -150,7 +150,7 @@ const translations = {
         form_name: "Your Full Name",
         form_email: "Email Address",
         form_msg: "Message Details",
-        btn_send: "Send Message <i class='fa-solid fa-paper-plane'></i>",
+        btn_send: "Send Message <i data-lucide='send'></i>",
         msg_success: "Thank you! Your message has been sent successfully. I will get back to you shortly.",
         msg_error: "Something went wrong while sending. Please try again or reach out directly via Zalo/Phone."
     }
@@ -166,17 +166,14 @@ function switchLanguage(lang) {
     document.querySelectorAll("[data-i18n]").forEach(element => {
         const key = element.getAttribute("data-i18n");
         if (translations[lang][key]) {
-            // Check if element has children/icons to preserve or just text
-            if (element.querySelector("i")) {
-                const icon = element.querySelector("i").outerHTML;
-                // Strip the icon html and find translation text
-                const textOnly = translations[lang][key].replace(/<i[^>]*><\/i>/g, "");
-                element.innerHTML = textOnly + " " + icon;
-            } else {
-                element.innerHTML = translations[lang][key];
-            }
+            element.innerHTML = translations[lang][key];
         }
     });
+
+    // Re-initialize Lucide Icons for newly inserted HTML translations
+    if (window.lucide) {
+        window.lucide.createIcons();
+    }
 
     // Update Input Placeholders
     const formName = document.getElementById("formName");
@@ -211,12 +208,15 @@ function toggleTheme() {
 }
 
 function updateThemeIcon(theme) {
-    const themeIcon = document.querySelector("#themeToggle i");
-    if (themeIcon) {
+    const themeToggle = document.getElementById("themeToggle");
+    if (themeToggle) {
         if (theme === "light") {
-            themeIcon.className = "fa-solid fa-sun";
+            themeToggle.innerHTML = `<i data-lucide="sun"></i>`;
         } else {
-            themeIcon.className = "fa-solid fa-moon";
+            themeToggle.innerHTML = `<i data-lucide="moon"></i>`;
+        }
+        if (window.lucide) {
+            window.lucide.createIcons();
         }
     }
 }
@@ -529,6 +529,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 9. Setup Custom Cursor Trailing Effect
     initCustomCursor();
+
+    // 10. Initialise Lucide SVGs
+    if (window.lucide) {
+        window.lucide.createIcons();
+    }
 });
 
 /* ==========================================================================
